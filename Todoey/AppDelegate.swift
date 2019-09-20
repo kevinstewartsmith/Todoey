@@ -16,8 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //This method happens when the app gets loaded up. Before viewDidLoad() in the initial VC
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        print("didFinishLaunchingWithOptions")
-         print(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last! as String)
+
+        //        print("didFinishLaunchingWithOptions")
+
+        //         print(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last! as String)
         return true
     }
     
