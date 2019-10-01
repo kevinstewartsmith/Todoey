@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,11 +17,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     //This method happens when the app gets loaded up. Before viewDidLoad() in the initial VC
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        print(Realm.Configuration.defaultConfiguration.fileURL)
 
-        //        print("didFinishLaunchingWithOptions")
-
-        //         print(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last! as String)
+        let data = Data()
+        data.name = "Angela"
+        data.age = 12
+        
+        do{
+            let realm = try Realm()
+            
+            try realm.write {
+                realm.add(data)
+            }
+        } catch {
+            print("Error in initialising new realm, \(error)")
+        }
+        
         return true
     }
     
