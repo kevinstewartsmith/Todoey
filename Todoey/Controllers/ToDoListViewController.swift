@@ -13,7 +13,13 @@ class ToDoListViewController: UITableViewController {
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var itemArray = [Item]()
     
+    var selectedCategory : Category? {
+        didSet{
+            loadItems()
+        }
+    }
     
+   // var newItem = Item(
     
    // let defaults = UserDefaults.standard
     
@@ -37,7 +43,7 @@ class ToDoListViewController: UITableViewController {
 //        newItem3.title = "Destroy Demogorgon"
 //        itemArray.append(newItem3)
         
-        loadItems()
+        //loadItems()
         
         
 //        if let items = defaults.array(forKey: "TodoListArray") as? [Item] {
@@ -101,6 +107,7 @@ class ToDoListViewController: UITableViewController {
             let newItem = Item(context: self.context)
             newItem.title = textField.text!
             newItem.done = false
+            newItem.parentCategory = self.selectedCategory
             
 //            self.itemArray.append((textField.text!))
             self.itemArray.append(newItem)
@@ -134,8 +141,19 @@ class ToDoListViewController: UITableViewController {
         self.tableView.reloadData()
     }
     
-    func loadItems(with request : NSFetchRequest<Item> = Item.fetchRequest()){
+    func loadItems(with request : NSFetchRequest<Item> = Item.fetchRequest(), predicate: NSPredicate? = nil ){
         //let request : NSFetchRequest<Item> = Item.fetchRequest()
+        
+        let categoryPredicate = NSPredicate(format: "parentCategory.name MATCHES %@", selectedCategory!.name!)
+        
+        if let additionalPredicate = predicate {
+            request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [categoryPredicate, additionalPredicate])
+        } else {
+            request.predicate = categoryPredicate
+        }
+        
+        
+        
         do {
             itemArray = try context.fetch(request)
         } catch {
@@ -154,11 +172,11 @@ class ToDoListViewController: UITableViewController {
             let request : NSFetchRequest<Item> = Item.fetchRequest()
             
             //We will query the data with an NSPredicate. Defines how we sort the database
-            request.predicate = NSPredicate(format: "title CONTAINS[cd] %@", searchBar.text!)
+            let predicate = NSPredicate(format: "title CONTAINS[cd] %@", searchBar.text!)
             
             request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
             
-            loadItems(with: request)
+            loadItems(with: request, predicate: predicate)
             
             
         }

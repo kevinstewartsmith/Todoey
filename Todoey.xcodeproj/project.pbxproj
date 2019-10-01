@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		FC4D2A5723347CDA001C3776 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FC4D2A5523347CDA001C3776 /* DataModel.xcdatamodeld */; };
+		FCD88356233E0134001B43B2 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD88355233E0134001B43B2 /* CategoryViewController.swift */; };
 		FCDA712C232B8FBB007BD8E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDA712B232B8FBB007BD8E0 /* AppDelegate.swift */; };
 		FCDA712E232B8FBB007BD8E0 /* ToDoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDA712D232B8FBB007BD8E0 /* ToDoListViewController.swift */; };
 		FCDA7131232B8FBB007BD8E0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCDA712F232B8FBB007BD8E0 /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		FC4D2A5623347CDA001C3776 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		FCD88355233E0134001B43B2 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		FCDA7128232B8FBB007BD8E0 /* Todoey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todoey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCDA712B232B8FBB007BD8E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FCDA712D232B8FBB007BD8E0 /* ToDoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListViewController.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 		FCDA714223324DD3007BD8E0 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				FCD88355233E0134001B43B2 /* CategoryViewController.swift */,
 				FCDA712D232B8FBB007BD8E0 /* ToDoListViewController.swift */,
 			);
 			path = Controllers;
@@ -170,6 +173,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCD88356233E0134001B43B2 /* CategoryViewController.swift in Sources */,
 				FCDA712E232B8FBB007BD8E0 /* ToDoListViewController.swift in Sources */,
 				FC4D2A5723347CDA001C3776 /* DataModel.xcdatamodeld in Sources */,
 				FCDA712C232B8FBB007BD8E0 /* AppDelegate.swift in Sources */,
@@ -328,7 +332,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ksmithmedia.Todoey;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -346,7 +350,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ksmithmedia.Todoey;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
