@@ -94,9 +94,20 @@ class ToDoListViewController: UITableViewController {
         
         //tableView.reloadData()
         
+        if let item = toDoItems?[indexPath.row]{
         
+            do{
+                try realm.write {
+                    item.done = !item.done
+            }
         
-        tableView.deselectRow(at: indexPath, animated: true)
+            } catch {
+                print("Error saving done status \(error)")
+            }
+        
+           tableView.deselectRow(at: indexPath, animated: true)
+        }
+        tableView.reloadData()
     }
 
     //MARK: - Add New Items
